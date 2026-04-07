@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LinkLens — by Jackson Tran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="sun-wrap">
+      <div class="sun">
+        <div class="sun-rays"></div>
+        <div class="sun-core">☀️</div>
+      </div>
+    </div>
+
+    <header>
+      <span class="eyebrow">✨ AI Web Intelligence</span>
+      <h1>SUN'S LENS</h1>
+      <p class="subtitle">Paste any URL and get the important stuff instantly — research papers, shopping, news, and more. Speaks every language! 🌍</p>
+    </header>
+
+    <div class="card">
+      <label for="url-input">🔗 Paste a link</label>
+      <div class="input-row">
+        <input type="text" id="url-input" placeholder="https://example.com/article..."/>
+        <button id="analyze-btn" onclick="analyze()">Analyze ☀️</button>
+      </div>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <!-- Skeleton loader -->
+    <div class="card skeleton-card" id="skeleton-card">
+      <div class="skeleton-header">
+        <div class="skeleton-line short"></div>
+        <div class="skeleton-line tiny"></div>
+      </div>
+      <div class="skeleton-line full"></div>
+      <div class="skeleton-line full"></div>
+      <div class="skeleton-line medium"></div>
+      <div class="skeleton-line full"></div>
+      <div class="skeleton-line short"></div>
+    </div>
+
+    <!-- Result card -->
+    <div class="card result" id="result-card">
+      <div class="result-header">
+        <span class="result-label">☀️ Summary</span>
+        <span class="result-url" id="result-url"></span>
+      </div>
+      <div class="result-body" id="result-body"></div>
+      <div class="result-actions">
+        <button class="action-btn" onclick="copyResult()">📋 Copy</button>
+        <button class="action-btn" onclick="downloadPDF()">📄 Download </button>
+      </div>
+    </div>
+
+    <footer>Made with ☀️ by <strong>Jackson Tran</strong> — LinkLens © 2026</footer>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
